@@ -43,3 +43,55 @@ body {
 a{
   color: white;
 }
+
+#stats ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#stats ul ul{
+  margin-left: -50px;
+}
+
+#stats li{
+  display: inline-block;
+}
+
+#stats li li{
+  display: block;
+}
+
+#stats li > *:nth-child(1){
+  font-weight: bolder;
+  padding: 0.5em;
+}
+
+#stats li button:nth-child(1){
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid gray;
+  margin-left: 0.5em;
+  border-radius: 5px;
+}
+
+#stats li:nth-child(4), #stats li:nth-child(5){
+  display: block;
+  float: right;
+}
+
+#stats li button:nth-child(1):hover{
+background-color: white;
+transition: 0.3s;
+}
+
+#objects{
+  background-color: white;
+  width: 100px;
+  margin-left: -50px;
+}
+
+#objects li{
+  padding: 0 .5em;
+  margin: 0;
+}
