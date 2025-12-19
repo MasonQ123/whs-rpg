@@ -7,7 +7,33 @@ class Player {
     this.charName = prompt("Enter your character name:");
     let img = prompt("Enter your character image URL (http(s)://...):");
     this.image = img;
+	this.currentWeapon = 0;
+	this.weapons = [0];
   }
+
+  buyWeapon() {
+	console.log("buy weapon");
+	console.log(this.currentWeapon) // + ":" + allWeapons.length)
+    if (this.currentWeapon < allWeapons.length - 1) {
+		console.log("weapon check");
+    	if (this.gold >= 30) {
+			console.log("gold check");
+            this.gold -= 30;
+            this.currentWeapon++;
+			this.weapons.push(this.currentWeapon);
+            goldText.innerText = this.gold;
+            let newWeapon = allWeapons[this.currentWeapon].name;
+    		text.innerText = "You now have a " + newWeapon + ".";
+    	} else {
+    		text.innerText = "You do not have enough gold to buy a new weapon.";
+    	} 
+		} else {
+			text.innerText = "You already have the most powerful weapon!";
+			button2.innerText = "Sell weapon for 15 gold";
+			button2.onclick = sellWeapon;
+		}
+	}
+
 }
 
 const player = new Player();
@@ -64,13 +90,13 @@ function showInventory(container, items, listName){
 }
 function buildWeapons(){
 	let w = [];
-	for(let weapon = 0; weapon<weapons.length;weapon++){
-		w.push(weapons[weapon].name)
+	for(let weapon = 0; weapon<player.weapons.length;weapon++){
+		w.push(allWeapons[weapon].name)
 	}
 	return w;
 }
 
-const weapons = [
+const allWeapons = [
 	{
 		name: "stick",
 		power: 5
@@ -117,7 +143,7 @@ const locations = [
 	{
 		name: "store",
 		"button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
-		"button functions": [buyHealth, buyWeapon, goTown],
+		"button functions": [buyHealth, player.buyWeapon, goTown],
 		text: "You enter the store."
 	},
 	{
@@ -199,25 +225,6 @@ function buyHealth() {
 
 }
 
-function buyWeapon() {
-    if (currentWeapon < weapons.length - 1) {
-    	if (gold >= 30) {
-            gold -= 30;
-            currentWeapon++;
-            goldText.innerText = gold;
-            let newWeapon = weapons[currentWeapon].name;
-    		text.innerText = "You now have a " + newWeapon + ".";
-            inventory.push(newWeapon);
-            text.innerText += " In your inventory you have: " + inventory;
-    	} else {
-    		text.innerText = "You do not have enough gold to buy a weapon.";
-    	} 
-    } else {
-		text.innerText = "You already have the most powerful weapon!";
-        button2.innerText = "Sell weapon for 15 gold";
-		button2.onclick = sellWeapon;
-	}
-}
 
 function sellWeapon() {
 	if (inventory.length > 1) {
