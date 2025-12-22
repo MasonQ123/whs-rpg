@@ -105,13 +105,14 @@ transition: 0.3s;
 
 #objects{
   background-color: white;
-  width: 70px;
+  width: 55px;
   
 }
 
 #objects li{
   padding: 0 .5em;
-  margin: 0;
+  margin: none;
+  background-color: white;
 }
 
 #weapons{
@@ -124,4 +125,8 @@ transition: 0.3s;
 
 #weapons li{
   padding: 0 .5em;
+  background-color: white;
+}
+.hidden {
+  display: none;
 }

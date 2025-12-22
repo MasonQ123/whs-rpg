@@ -65,9 +65,10 @@ const monsterHealthText = document.querySelector("#monsterHealth");
 const myObjects = document.querySelector("#stats li:nth-child(4)"); 
 const myWeapons = document.querySelector("#stats li:nth-child(5)");
 const stats = document.querySelector("#stats li:nth-child(5)");
-
+const infoBox = document.getElementById('infoBox');
 function showObjects() {
-	showInventory(myObjects, objects, "objects")
+	showInventory(myObjects, objects, "objects");
+	
 }
 
 function showName(){
@@ -81,17 +82,17 @@ function showWeapons(){
 
 }
 function showInventory(container, items, listName){
-	console.log(myObjects)
+	// Toggle the inventory list: if it already exists, remove it; otherwise create it
+	const existing = container.querySelector(`#${listName}`);
+	if (existing) {
+		existing.remove();
+		return;
+	}
 	let inventoryList = document.createElement("ul");
 	inventoryList.id = listName;
-	container.addEventListener('click', (event) => {
-		inventoryList.style.display = "none";
-		
-	});
-	for (let item = 0; item < items.length; item++){
+	for (let i = 0; i < items.length; i++){
 		let newItem = document.createElement("li");
-		newItem.innerHTML = items[item];
-		console.log(newItem);
+		newItem.textContent = items[i];
 		inventoryList.appendChild(newItem);
 	}
 	container.appendChild(inventoryList);
