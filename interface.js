@@ -18,7 +18,6 @@ const infoBox = document.getElementById('infoBox');
 
 function showObjects() {
 	showInventory(myObjects, objects, "objects");
-	
 }
 
 function showName(){
@@ -61,6 +60,17 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
+function goStore() {
+    update(locations[1]);
+}
+
+function goTown() {
+    update(locations[0]);
+}
+
+function goCave() {
+    update(locations[2]);
+}
 function update(location) {
     monsterStats.style.display = "none";
 	button1.innerText = location["button text"][0];
@@ -70,16 +80,4 @@ function update(location) {
 	button2.onclick = location["button functions"][1];
 	button3.onclick = location["button functions"][2];
     text.innerText = location.text;    
-}
-
-function goTown() {
-    update(locations[0]);
-}
-
-function goStore() {
-    update(locations[1]);
-}
-
-function goCave() {
-    update(locations[2]);
 }
