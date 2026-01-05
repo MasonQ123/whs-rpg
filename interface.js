@@ -28,7 +28,24 @@ function showName(){
 function showWeapons(){
 	console.log(currentWeapon)
 	showInventory(myWeapons, buildWeapons(), "weapons")
-
+}	
+function showPages(){//working on this//
+	document.getElementById("main").style.display="none";
+	document.getElementById("admin").style.display="none";
+	document.getElementById("player").style.display="block";
+	let inventoryList = document.createElement("ul");
+	inventoryList.id = "pages";
+	container.addEventListener('click', (event) => {
+		inventoryList.style.display = "none";
+		
+	});
+	for (let item = 0; item < items.length; item++){
+		let newItem = document.createElement("li");
+		newItem.innerHTML = items[item];
+		console.log(newItem);
+		inventoryList.appendChild(newItem);
+	}
+	container.appendChild(inventoryList);
 }
 function showInventory(container, items, listName){
 	// Toggle the inventory list: if it already exists, remove it; otherwise create it

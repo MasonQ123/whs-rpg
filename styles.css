@@ -130,3 +130,14 @@ transition: 0.3s;
 .hidden {
   display: none;
 }
+
+/* Player and Admin pages */
+
+#main, #player{
+  display:none;
+}
+.red{
+  width:200px;
+  height:200px;
+  background-color: red;
+}

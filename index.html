@@ -8,10 +8,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body onload="showName()"> 
-<div id="gameBoard">
+<body> 
+<div id="main" class="gameBoard">
 <div id="profile">
-<div id="picture"></div>
+<div id="picture">
+</div>
 <p id="playerName"></p>
 </div>
 <div id="game">
@@ -22,6 +23,8 @@
     <li><span>Gold:</span><span id="goldText">50</span></li>
     <li><button onclick="showWeapons()">Weapons</button></li>
     <li><button onclick="showObjects()">Objects</button></li>
+    <li><button onclick="showPages()">Go</button></li>
+    </ul>
   <div id="infoBox" class="hidden">
   This is the information that will be shown and hidden.
 </div>
@@ -39,6 +42,61 @@
   </div>
   <div id="text">Welcome to Dragon Repeller. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons above.</div>
   
+</div>
+</div>
+</div> <!-- Main -->
+<div  id="player" class="gameBoard">
+<div id="profile">
+<div id="picture"></div>
+<p id="playerName"></p>
+</div>
+<div id="game">
+  <div id="stats">
+   <ul> 
+    <li><span>XP:</span><span id="xpText">0</span></li>
+    <li><span>Health:</span><span id="healthText">100</span></li>
+    <li><span>Gold:</span><span id="goldText">50</span></li>
+    <li><button onclick="showWeapons()">Weapons</button></li>
+    <li><button onclick="showObjects()">Objects</button></li>
+    <li><button onclick="showPages()">Go</button></li>
+  </div>
+  <div id="playerPage">
+    <p>Test</p>
+  </div>
+  </div>
+  
+ 
+  
+</div>
+</div>
+<div id="admin" class="gameBoard">
+<div id="profile">
+<div id="picture"></div>
+<p id="playerName"></p>
+</div>
+<div id="game">
+  <div id="stats">
+   <ul> 
+    <li><span>XP:</span><span id="xpText">0</span></li>
+    <li><span>Health:</span><span id="healthText">100</span></li>
+    <li><span>Gold:</span><span id="goldText">50</span></li>
+    <li><button onclick="showWeapons()">Weapons</button></li>
+    <li><button onclick="showObjects()">Objects</button></li>
+    <li><button onclick="showPages()">Go</button></li>
+  </div>
+  <div id="controls">
+
+    <button id="button1">Go to store</button>
+    <button id="button2">Go to cave</button>
+    <button id="button3">Fight dragon</button>
+  </div>
+
+  <div id="monsterStats">
+    <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
+    <span class="stat">Health: <strong><span id="monsterHealth"></span></strong></span>
+  </div>
+  <div id="text">Welcome to Dragon Repeller. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons above.</div>
+
 </div>
 </div>
 <script src="Player.js" defer></script>
