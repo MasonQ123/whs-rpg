@@ -141,3 +141,11 @@ transition: 0.3s;
   height:200px;
   background-color: red;
 }
+#pages {
+  border-radius:20px;
+  padding: 2px;
+  background-color: white;
+}
+#pages li{
+  margin-left:10px;
+}

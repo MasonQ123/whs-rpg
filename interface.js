@@ -39,7 +39,19 @@ function showPages(){//working on this//
 	document.getElementById("admin").style.display="none";
 	document.getElementById("player").style.display="none";
 	let pages=["main", "admin", "player"];
-	showInventory(allPages, buildWeapons(), "weapons")
+	const existing = allPages.querySelector(`#${pages}`);
+	if (existing) {
+		existing.remove();
+		return;
+	}
+	let pagesList = document.createElement("ul");
+	pagesList.id = "pages";
+	for (let i = 0; i < pages.length; i++){
+		let newItem = document.createElement("li");
+		newItem.textContent = pages[i];
+		pagesList.appendChild(newItem);
+	}
+	allPages.appendChild(pagesList);
 }
 function showInventory(container, items, listName){
 	// Toggle the inventory list: if it already exists, remove it; otherwise create it
