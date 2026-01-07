@@ -1,7 +1,7 @@
 /* UI Controls */
 const controls = document.getElementById("controls");
 const button1 = document.querySelector("#controls :nth-child(1)");
-const container = document.querySelector('.container:nth-child(2)');
+const go = document.getElementById("go");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
 const text = document.querySelector("#text");
@@ -16,9 +16,11 @@ const myObjects = document.querySelector("#stats li:nth-child(4)");
 const myWeapons = document.querySelector("#stats li:nth-child(5)");
 const stats = document.querySelector("#stats li:nth-child(6)");
 const infoBox = document.getElementById('infoBox');
+const goShow= document.getElementById("goShow");
 // setup functions
 setUp();
 function setUp(){
+	go.id="go";
 	showPages();
 }
 function showObjects() {
@@ -39,19 +41,24 @@ function showPages(){//working on this//
 	document.getElementById("admin").style.display="none";
 	document.getElementById("player").style.display="none";
 	let pages=["main", "admin", "player"];
-	const existing = allPages.querySelector(`#${pages}`);
-	if (existing) {
-		existing.remove();
-		return;
-	}
-	let pagesList = document.createElement("ul");
-	pagesList.id = "pages";
+
 	for (let i = 0; i < pages.length; i++){
 		let newItem = document.createElement("li");
 		newItem.textContent = pages[i];
-		pagesList.appendChild(newItem);
+		go.appendChild(newItem);
 	}
-	allPages.appendChild(pagesList);
+	go.style.display="none";
+	goShow.addEventListener("click" , showGo);
+}
+function showGo(){
+	go.style.display="block";
+	goShow.removeEventListener("click", showGo);
+	goShow.addEventListener("click" , hideGo);
+}
+function hideGo(){
+	go.style.display="none";
+	goShow.removeEventListener("click", hideGo);
+	goShow.addEventListener("click" , showGo);
 }
 function showInventory(container, items, listName){
 	// Toggle the inventory list: if it already exists, remove it; otherwise create it
