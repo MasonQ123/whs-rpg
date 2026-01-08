@@ -18,7 +18,7 @@ class Location {
 
 /* This is a collection of all the locations which can be referenced from other classes */
 
-class Places {
+class Place {
     constructor(name) {
         this.name = name;
         this.locations = []; 
@@ -26,14 +26,14 @@ class Places {
 	addLocation(place) {
         if (place instanceof Location) {
             this.locations.push(place);
-            console.log(`Added "${place.name}" to Places.`);
+            console.log(`Added "${place.name}" to Place.`);
         } else {
             console.error("Invalid object: only Location instances allowed.");
         }
     }
 
     listPlaces() {
-        console.log(`\n--- Locations in ${this.name} Places ---`);
+        console.log(`\n--- Locations in ${this.name} ---`);
         this.locations.forEach(place => {
             // We can call methods directly on the stored instances
            place.displayInfo(); 
@@ -44,7 +44,7 @@ class Places {
 		return this.locations[index].name;
   	}
 
-} // End Places Class
+} // End Place Class
 
 
 const locations = [
@@ -112,7 +112,7 @@ const locations = [
 // ]
 
 
-const WHS = new Places('WHS');
+const WHS = new Place('WHS');
 locations.forEach(data => {
     const newPlace = new Location(data.index, data.name, data.coords);
     WHS.addLocation(newPlace);
