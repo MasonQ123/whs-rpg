@@ -35,9 +35,9 @@ function createNavCross() {
 		navCross.appendChild(navBox);
 	}
 	buttonLabels = ["top", "right", "bottom", "left"];
-	const places = locations.map(data => new Location(data.index, data.locName, data.coords));
+
 	navButtons = [];
-	console.log(places[0].getName())
+	console.log(WHS.getName(0))
 	console.log(player.getCurrentLocation());
 	console.log(player.getCurrentCoords());
 }
