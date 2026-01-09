@@ -23,21 +23,18 @@ function setUp() {
 }
 
 function createNavCross() {
-	let board = document.getElementById("gameBoard");
-	const firstChild = board.firstElementChild;
+	document.getElementById("game");
 	let navCross = document.createElement("div");
+	game.appendChild(navCross);
 	navCross.id = "navCross";
-	board.insertBefore(navCross, firstChild.nextElementSibling);
-	document.getElementById("navCross")
-	let navBox;	
-	buttonLabels = ["Navigation", "forward", "right", "left", "back"];
-	for(let i = 0; i < 5; i++){
+	document.getElementById("navCross");
+	let navBox;
+	for(let i = 0; i < 4; i++){
 		navBox = document.createElement("div");
 		navBox.id = "nav" + i;
-		navBox.innerHTML = buttonLabels[i];
 		navCross.appendChild(navBox);
 	}
-
+	buttonLabels = ["top", "right", "bottom", "left"];
 
 	navButtons = [];
 	console.log(WHS.getName(0))
