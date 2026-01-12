@@ -23,6 +23,7 @@ function setUp() {
 }
 
 function createNavCross() {
+	getNavLocations();
 	let board = document.getElementById("gameBoard");
 	const firstChild = board.firstElementChild;
 	let navCross = document.createElement("div");
@@ -43,6 +44,33 @@ function createNavCross() {
 	console.log(WHS.getName(0))
 	console.log(player.getCurrentLocation());
 	console.log(player.getCurrentCoords());
+}
+
+function getNavLocations() {
+	let locationNow = player.currentLocation;
+	let coordsNow = WHS.locations[locationNow].coords;
+	console.log("coords are " + coordsNow);
+	let move = locations[0].coords[1] += 1
+	console.log(WHS.locations[move]);
+	let proximals = [[0,1], [1,0], [0,-1], [-1,0]];
+	let testX;
+	let testY;
+	let possibles = [];
+	for(let i =0; i < 4; i++){
+		testX = coordsNow[0] + proximals[i][0];
+		testY = coordsNow[1] + proximals[i][1];
+		possibles.push(testLocation(testX, testY));
+	}
+	console.log("1,-1,-1,-1?" + possibles);
+}
+
+function testLocation(x,y){
+	for(let i = 0; i < WHS.locations.length; i++){
+		if(WHS.locations[i].coords == [x,y]){
+			return i;
+		}
+	}
+	return -1;
 }
 
 function showObjects() {
