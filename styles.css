@@ -124,7 +124,6 @@ transition: 0.3s;
   left:110px;
   
 }
-
 #weapons li{
   padding: 0 .5em;
   background-color: white;
@@ -132,9 +131,7 @@ transition: 0.3s;
 .hidden {
   display: none;
 }
-
 /* Player and Admin pages */
-
 #main, #player{
   display:none;
 }
@@ -155,23 +152,41 @@ transition: 0.3s;
   display:none;
   background-color: white;
 }
-
 #playerPage {
   clear: both;
   background-color: rgb(202, 177, 130);
   border: 3px dashed rgb(148, 129, 85);;
   margin-top: 20px;
-  padding: 20px;
-   text-align: center;
+  text-align: center;
+  height:400px;
 }
-
 #playerPicture {
   border: 3px dashed rgb(148, 129, 85);
-  width:300px;
+  width:200px;
+  margin-left:10px;
+  float:left;
+  border-radius:20px;
 }
 #playerPageName{
   font-size:40px;
+   margin-left:10px;
+  float:left;
 }
-#player{
-  height:1000px;
+#imageName{
+  background-color: rgb(40, 48, 48);
+}
+#pageStats{
+  border: 3px dashed rgb(148, 129, 85);
+  
+}
+#fname, #lname{
+  margin-left:200px;
+  margin:15px;
+}
+
+label{
+  background-color:lightgray;
+  color:black;
+  border:2px black solid;
+  padding:4px;
 }
