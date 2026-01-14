@@ -23,23 +23,64 @@ function setUp() {
 }
 
 function createNavCross() {
-	document.getElementById("game");
+	let possibles = getNavLocations();
+	let board = document.getElementById("gameBoard");
+	const firstChild = board.firstElementChild;
 	let navCross = document.createElement("div");
-	game.appendChild(navCross);
 	navCross.id = "navCross";
-	document.getElementById("navCross");
-	let navBox;
-	for(let i = 0; i < 4; i++){
+	board.insertBefore(navCross, firstChild.nextElementSibling);
+	document.getElementById("navCross")
+	let navBox;	
+	buttonLabels = ["Navigation", "forward", "right", "left", "back"];
+	for(let i = 0; i < 5; i++){
 		navBox = document.createElement("div");
 		navBox.id = "nav" + i;
-		navCross.appendChild(navBox);
-	}
-	buttonLabels = ["top", "right", "bottom", "left"];
+		navBox.innerHTML = buttonLabels[i];
+		if(i > 0 && possibles[i-1] > 0){
+			navBox.addEventListener("click", (event) => {
+  			update(WHS.Locations[possibles[i-1]]);
+		});
+		navBox.classList.add('clickable');
+		}
+	navCross.appendChild(navBox);
+}
+
 
 	navButtons = [];
 	console.log(WHS.getName(0))
 	console.log(player.getCurrentLocation());
 	console.log(player.getCurrentCoords());
+}
+
+function getNavLocations() {
+	let locationNow = player.currentLocation;
+	let coordsNow = WHS.locations[locationNow].coords;
+	console.log("coords are " + coordsNow);
+	let proximals = [[0,1], [1,0], [0,-1], [-1,0]];
+	let testX;
+	let testY;
+	let possibles = [0,0,0,0];
+	for(let i = 0; i < proximals.length; i++){
+		testX = coordsNow[0] + proximals[i][0];
+		testY = coordsNow[1] + proximals[i][1];
+		console.log("test next location with coordinates = " + testX + "," + testY);
+		if (testLocation(testX, testY) != -1){
+			possibles[i] = testLocation(testX, testY);
+			console.log("possibles: " + possibles);
+		}
+	}
+	return possibles;
+}
+
+function testLocation(x,y){
+	for(let i = 0; i < WHS.locations.length; i++){
+		console.log("next location: " + WHS.locations[i].coords);
+		if(WHS.locations[i].coords[0] == x && WHS.locations[i].coords[1] == y){
+			console.log("match found: " + WHS.locations[i].coords);
+			return i;
+		}
+	}
+	return -1;
 }
 
 function showObjects() {

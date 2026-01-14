@@ -49,7 +49,7 @@ class Place {
 
 const locations = [
 	{
-		index: 1,
+		index: -1,
 	 	name: "Main Entrance",
 		coords: [0,0]
 		// "button text": ["Go to store", "Go to cave", "Fight dragon"],
@@ -57,7 +57,7 @@ const locations = [
 		// text: "You are in the main entrance. You've just been let into the school when the receptionist tells you: \n \"We need your help, and quickly too.\" "
 	},
 	{
-		index: 2,
+		index: 1,
 	 	name: "Front Office",
 		coords: [0,1]
 		// "button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
@@ -65,15 +65,15 @@ const locations = [
 		// text: "The receptionist's stare, waiting for you to do something."
 	},
 	{
-		index: 5,
+		index: 2,
 	 	name: "Stairwell",
-		coords: [1,0]
+		coords: [-1,1]
 		// "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
 		// "button functions": [fightSlime, fightBeast, goTown],
 		// text: "You enter the stairwell, the lights have been cut off and you hear terrible, monstrous groans."
 	},
 	{
-		index: 2,
+		index: 3,
 	 	name: "Library",
 		coords: [1,1]
 		// "button text": ["Attack", "Dodge", "Run"],
