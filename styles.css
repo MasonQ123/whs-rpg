@@ -240,7 +240,7 @@ transition: 0.3s;
   width:200px;
   margin-left:10px;
   float:left;
-  border-radius:20px;
+  
 }
 #playerPageName{
   font-size:40px;
@@ -252,16 +252,33 @@ transition: 0.3s;
 }
 #pageStats{
   border: 3px dashed rgb(148, 129, 85);
-  
+  float:right;
+  margin-right:100px;
+  width:200px;
 }
-#fname, #lname{
+
+#box{
+  background-color: white;
   margin-left:200px;
   margin:15px;
 }
-
+#textarea{
+  border:1px black solid;
+  width:170px;
+  height: 17px;
+  margin-left:20px;
+  margin-top:15px;
+  margin-bottom:10px;
+}
 label{
   background-color:lightgray;
   color:black;
   border:2px black solid;
   padding:4px;
+  
+}
+#done{
+  margin:20px;
+  width:60px;
+  height: 25px;
 }
