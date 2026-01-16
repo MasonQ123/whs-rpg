@@ -71,7 +71,7 @@ function createNavCross() {
 }
 
 function getNavLocations() {
-   // let locationNow = player.getCurrentLocation();
+   let locationNow = player.getCurrentLocation();
    // let locationMatch = WHS.locations.find(location => location.index === locationNow);
    // console.log("coords are " + WHS.locations[locationMatch].getCoords());
    let locationNow = player.currentLocation;
