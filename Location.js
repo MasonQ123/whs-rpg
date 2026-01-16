@@ -1,19 +1,31 @@
 class Location {
 	static lastIndex = 0;
-	constructor(index, name, coords) {
+	constructor(index, name, coords, text) {
 		this.index = index;
 		this.name = name;
 		this.coords = coords;
+		this.text = text;
 		// this.actions = actions;
-		// this.text = text;
 		// this.npcs = npcs;
 		// this.dialogue = dialogue
-		// this.getCurrentCoords = this.getCurrentCoords.bind(this);
   	}
-  getCurrentName(){
-	return this.name;
-  }
+	getName(){
+		return this.name;
+  	}
+
+	getIndex(){
+		return this.index;
+  	}
+
+	getText(){
+		return this.text;
+  	}
   
+	getCoords(){
+		console.log("Coords = "+ this.coords);
+    	return this.coords;
+  	}
+	
 } // End Location Class
 
 /* This is a collection of all the locations which can be referenced from other classes */
@@ -51,34 +63,35 @@ const locations = [
 	{
 		index: -1,
 	 	name: "Main Entrance",
-		coords: [0,0]
+		coords: [0,0],
+		text: "You are in the main entrance. You've just been let into the school when the receptionist tells you: \n \"We need your help, and quickly too.\" "
 		// "button text": ["Go to store", "Go to cave", "Fight dragon"],
 		// "button functions": [goStore, goCave, fightDragon],
-		// text: "You are in the main entrance. You've just been let into the school when the receptionist tells you: \n \"We need your help, and quickly too.\" "
-	},
+		},
 	{
 		index: 1,
 	 	name: "Front Office",
-		coords: [0,1]
+		coords: [0,1],
+		text: "The receptionist's stare, waiting for you to do something."
 		// "button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
 		// "button functions": [buyHealth, player.buyWeapon, goTown],
-		// text: "The receptionist's stare, waiting for you to do something."
 	},
 	{
 		index: 2,
 	 	name: "Stairwell",
-		coords: [-1,1]
+		coords: [-1,1],
+		text: "You enter the stairwell, the lights have been cut off and you hear terrible, monstrous groans."
 		// "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
 		// "button functions": [fightSlime, fightBeast, goTown],
-		// text: "You enter the stairwell, the lights have been cut off and you hear terrible, monstrous groans."
 	},
 	{
 		index: 3,
 	 	name: "Library",
-		coords: [1,1]
+		coords: [1,1],
+		text: "You're attacked as you enter the library."
 		// "button text": ["Attack", "Dodge", "Run"],
 		// "button functions": [attack, dodge, goTown],
-		// text: "You're attacked as you enter the library."
+		
 	}
 ]
 	// {
@@ -114,12 +127,12 @@ const locations = [
 
 const WHS = new Place('WHS');
 locations.forEach(data => {
-    const newPlace = new Location(data.index, data.name, data.coords);
+    const newPlace = new Location(data.index, data.name, data.coords, data.text);
     WHS.addLocation(newPlace);
 });
 
 console.log("WHS is created!");
-console.log("First one: " + JSON.stringify(WHS.locations[0].name));
+console.log("First one: " + WHS.locations[0].text);
 
 
 function goStore() {
