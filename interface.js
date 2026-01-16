@@ -110,7 +110,7 @@ function testLocation(x,y){
 }
 
 function showObjects() {
-	showInventory(myObjects, objects, "objects");
+   showInventory(myObjects, objects, "objects");
 }
 
 function showName(pageId) {
@@ -119,10 +119,47 @@ function showName(pageId) {
    page.querySelector("#playerPicture").src = player.image;
 }
 
-function showWeapons(){
-	console.log(currentWeapon)
-	showInventory(myWeapons, buildWeapons(), "weapons")
+function showWeapons() {
+   console.log(currentWeapon)
+   showInventory(myWeapons, buildWeapons(), "weapons")
+}
 
+function showPages() {
+   document.getElementById("main").style.display = "block";
+   document.getElementById("admin").style.display = "none";
+   document.getElementById("player").style.display = "none";
+   go.style.display = "none";
+   goShow.addEventListener("click", showGo);
+}
+
+function createPlayerPage() {
+   let playerP = document.createElement("p")
+   playerP.innerHTML = "Hello"
+   playerPage.appendChild(playerP)
+}
+
+function goMain() {
+   document.getElementById("main").style.display = "block";
+   document.getElementById("admin").style.display = "none";
+   document.getElementById("player").style.display = "none";
+}
+
+function showName(pageId) {
+   const page = document.getElementById(pageId);
+   page.querySelector("#playerPageName").textContent = player.charName;
+   page.querySelector("#playerPicture").src = player.image;
+}
+
+function goAdmin() {
+   document.getElementById("main").style.display = "none";
+   document.getElementById("admin").style.display = "block";
+   document.getElementById("player").style.display = "none";
+}
+
+function showGo() {
+   go.style.display = "block";
+   goShow.removeEventListener("click", showGo);
+   goShow.addEventListener("click", hideGo);
 }
 
 function showPages() {
@@ -187,12 +224,29 @@ function showInventory(container, items, listName){
 	container.appendChild(inventoryList);
 }
 
-function buildWeapons(){
-	let w = [];
-	for(let weapon = 0; weapon<player.weapons.length;weapon++){
-		w.push(allWeapons[weapon].name)
-	}
-	return w;
+function showInventory(container, items, listName) {
+   // Toggle the inventory list: if it already exists, remove it; otherwise create it
+   const existing = container.querySelector(`#${listName}`);
+   if (existing) {
+      existing.remove();
+      return;
+   }
+   let inventoryList = document.createElement("ul");
+   inventoryList.id = listName;
+   for (let i = 0; i < items.length; i++) {
+      let newItem = document.createElement("li");
+      newItem.textContent = items[i];
+      inventoryList.appendChild(newItem);
+   }
+   container.appendChild(inventoryList);
+}
+
+function buildWeapons() {
+   let w = [];
+   for (let weapon = 0; weapon < player.weapons.length; weapon++) {
+      w.push(allWeapons[weapon].name)
+   }
+   return w;
 }
 
 // initialize buttons
