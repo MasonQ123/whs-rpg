@@ -27,6 +27,7 @@ function setUp() {
    showPages();
    update(WHS.locations[0].index);
    createNavCross();
+   buildActions();
 }
 
 function goButtons() {
@@ -49,38 +50,28 @@ function goButtons() {
 	board.appendChild(navCross);
 }
 
-function createActionButtons() {
-   let locationNow = player.getCurrentLocation();
-   let possibles =  WHSchoices.actions[locationNow].coords; //working here
-   let buttonLabels = [];
-   let actionButton;
-   for (let i = 0; i < possibles.length; i++) {
-      navBox = document.createElement("div");
-      navBox.id = "nav" + i;
-      navBox.innerHTML = buttonLabels[i];
-      if (i > 0 && possibles[i - 1] > 0) {
-         navBox.addEventListener("click", (event) => {
-            update(WHS.Locations[possibles[i - 1]]);
-         });
-         navBox.classList.add('clickable');
-      }
-      navCross.appendChild(navBox);
-   }
-}
+
 
 function buildActions() {
-   let b = [];
-   currentLocation = player.getCurrentLocation();
-    let locationNow = WHS.locations.find(location => location.index === currentLocation);
-   for (let action = 0; action < locationNow.actions.length; action++) {
-      b.push(locationNow.actions[action].name)
+   const parentElement = document.getElementById("controls");
+   const firstChild = parentElement.firstElementChild; 
+   if (firstChild) { // delete other buttons
+      parentElement.replaceChildren(firstChild);
    }
-   return b;
-}
-
-function showActions() {
-   console.log(buildActions.toString())
-   showInventory(controls, buildActions(), "actions")
+   let currentLocation = player.getCurrentLocation(); // index of current location
+   let locationNow = WHS.locations.find(location => location.index === currentLocation); // get current location object
+   console.log("Location Now found? " + locationNow.name + " with index "+ locationNow.index);
+   let actionsNow = locationNow.actions; // get actions ID array
+   for (let arrayAction = 0; arrayAction < locationNow.actions.length; arrayAction++) {
+      let actionNow = WHSActions.actions.find(action => action.actId === actionsNow[arrayAction]); // get next matching action object
+      if (actionNow.locId == currentLocation) console.log(actionNow.name + " matches " + currentLocation);
+      let actionButton = document.createElement("button");
+      actionButton.innerHTML = actionNow.name;
+      let method = actionNow.execute;
+      actionButton.addEventListener('click', (event) => method(event));
+      controls.appendChild(actionButton);
+   }
+   console.log("Were buttons built?")
 }
 
 
