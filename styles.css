@@ -31,7 +31,7 @@ button:hover{
   text-align:center;
 }
 
-#game,#navCross{
+#game{
   display:inline-block;
 }
 #game {
@@ -43,8 +43,14 @@ button:hover{
 }
 
 #navCross {
-  width: 100px;
-  margin-right: 8px;
+  display:grid;
+  grid-template-areas:
+  ". nav ."  
+  ". up ."
+  "left . right"
+  ". down .";
+  width: 150px;
+  height: 175px;
   border: 5px solid lightgray;
   background: darkgray;
   background-image: url('dcross.png');
@@ -53,21 +59,32 @@ button:hover{
   background-position: center 28px;
 }
 
-#navCross div:nth-child(4){
-  float:right;
+#navCross div:nth-child(1){
+grid-area: nav;
 }
+
+#navCross div:nth-child(2){
+grid-area: up;
+}
+
 #navCross div:nth-child(3){
-  float:left;
+  grid-area: right;
 }
-#navCross div:nth-child(5), #navCross div:nth-child(2){
-  clear:both;
-  text-align:center;
+#navCross div:nth-child(4){
+  grid-area: down
 }
+#navCross div:nth-child(5){
+  grid-area: left;
+}
+
+
+
 #navCross div{
   margin-bottom: 8px;
   border: 1px solid white;
   padding: 2px; 
   background-color:rgba(169,169,169,0.5);
+  text-align:center;
 }
 #navCross div:hover{
   background-color:rgb(165, 124, 91);
@@ -299,4 +316,10 @@ label{
 
 #controls div {
   display:inline-block;
+}
+
+#dad{
+   display: flex;
+   gap:0;
+   justify-content: flex-start;
 }

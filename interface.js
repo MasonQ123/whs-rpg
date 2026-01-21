@@ -81,7 +81,7 @@ function createNavCross() {
    navCross.innerHTML = ""; // clear previous buttons
    let possibles = getNavLocations();
 	let navBox;	
-	buttonLabels = ["Navigation", "forward", "right", "left", "back"];
+	buttonLabels = ["Navigation", "forward", "right", "back", "left"];
 	for(let i = 0; i < 5; i++){
 		navBox = document.createElement("div");
 		navBox.id = "nav" + i;
@@ -95,6 +95,7 @@ function createNavCross() {
 	navCross.appendChild(navBox);
 	}
 	navButtons = [];
+   dad.appendChild(navCross);
 }
 
 function getNavLocations() {

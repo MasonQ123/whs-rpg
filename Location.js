@@ -63,60 +63,59 @@ const locations = [
 		index: -1,
 	 	name: "Main Entrance",
 		coords: [0,0],
-		text: "You are at the main entrance, a glass door to a lobby where you can enter.  You have seen others enter.  Sometimes they have a magic ID that gets them in, but usually they have to engage with someone at a window at the right. Sometimes they are handed a clipboard with paper to sign, and then the door magically opens.",		
+		text: "You are standing outside, looking into the front office from the main entrance. 0,0",
 		actions: [-1,-2]
 	},
 	{
 		index: 1,
 	 	name: "Lobby",
 		coords: [0,1],
-		text: "",
+		text: "You enter the lobby as the doors lock behind you. There is a window but you can't see clearly into it, as well as four large locked doors. 0,1",
 		actions: [0,1,2,3]
 	},
 	{
 		index: 2,
 	 	name: "Front Hallway",
-		coords: [-1,1],
-		text: "You enter the stairwell, the lights have been cut off and you hear terrible, monstrous groans.",
+		coords: [0,2],
+		text: "You are now in a long hall way that seems to go on both left and right. 0,2",
 		actions: []
 	},
 	{
 		index: 3,
-	 	name: "Library",
-		coords: [1,1],
-		text: "You're attacked as you enter the library.",
+		name: "Stairwell Hall",
+		coords: [1,2],
+		text: "This hallway connects to two more hallways and a stairwell. 1,2",
+		actions: []
+	},
+	{
+		index: 4,
+	 	name: "Auditorium Hall",
+		coords: [-1,2],
+		text: "This hallway just goes straight, though there seems to be a movie playing somewhere. -1,2",
+		actions: []
+	},
+	{
+		index: 5,
+	 	name: "Stairwell",
+		coords: [2,2],
+		text: "You enter the stairwell and see two sets of stairs running straight to the second and third floors. 2,2",
+		actions: []
+	},
+	{
+		index: 6,
+	 	name: "Auditorium Hall, cont.",
+		coords: [-1,3],
+		text: "The sounds of the movie near closer. -1,3",
+		actions: []
+	},
+	{
+		index: 7,
+	 	name: "Auditorium",
+		coords: [-1,4],
+		text: "You enter the auditorium, it looks like they're showing Casablanca. -1,4",
 		actions: []
 	}
 ]
-	// {
-	// 	index: 3,
-	//  	name: "Gymnasium",
-	// 	// "button text": ["Go to town square", "Go to town square", "Go to town square"],
-	// 	// "button functions": [goTown, goTown, easterEgg],
-	// 	// text: 'The dragon has made the gym it\'s new home, are you ready to cast it away?'
-	// },
-	// {
-	// 	index: 4,
-	//  	name: "Admin Office",
-	// 	// "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
-	// 	// "button functions": [restart, restart, restart],
-	// 	// text: "The dragon exiles you to the principal's office, good luck explaining your way out of this one... you lose. 💀"
-	// },
-	// {
-	// 	index: 6,
-	//  	name: "Guidance Office",
-	// 	// "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
-	// 	// "button functions": [restart, restart, restart],
-	// 	// text: "You defeated the dragon and saved the school! YOU WIN THE GAME! 🎉"
-	// },
-	// {
-	// 	index: 7,
-	//  	name: "Nurse's Office",
-	// 	// "button text": ["2", "8", "Go to town square?"],
-	// 	// "button functions": [pickTwo, pickEight, goTown],
-	// 	// text: "As you enter the nurse's office you that the nurse's are playing a secret game. They invite you to join: \n \"Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!\""
-	// }
-// ]
 
 
 const WHS = new Place('WHS');
